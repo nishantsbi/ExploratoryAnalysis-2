@@ -50,7 +50,7 @@ legend('topright', # position legend in top right corner
        lty = 1, # make solid lines for each element of the legend
        col = c("black", "red", "blue"), # colour the lines according to spec
        cex = 0.60, # reduce font size according to spec
-       y.intersp = 0.70, # set line spacing according to spec
+       y.intersp = 0.85, # set line spacing according to spec
        bty = "n", # no outline
        lwd = 1.5) # make line slightly wider
 
@@ -62,5 +62,5 @@ plot(df.sub$DateTime, df.sub$Global_reactive_power, # create plot
      xlab = "datetime", # x-axis label
      ylab = "Global_reactive_power") # y-axis label
 
-dev.copy(png, file = "plot4.png", width = 480, height = 480) # Copy plot to a PNG file
+dev.copy(png, file = "plot4.png", width=642, height=495) # Copy plot to a PNG file.  These dimensions were needed to ensure legend was visible.
 dev.off() # Close PNG device

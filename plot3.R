@@ -15,12 +15,13 @@ df$DateTime <- ymd_hms(df$DateTime) # Convert from character to date format
 df.sub <- subset.data.frame(df, df$Date >= as.Date("2007-02-01") & df$Date <= as.Date("2007-02-02"))
 
 #Create a plot
+png("plot3.png") # this saves the plot below to a png
 plot(df.sub$DateTime, df.sub$Sub_metering_1, # create first series in plot
      type = "l", # type should be line plot
      xlab = "", # making the x-axis label blank
      ylab = "Energy sub metering", # y-axis label
-     cex.axis = 0.70, # set axis font size according to spec
-     cex.lab = 0.70, # set axis label size according to spec
+     cex.axis = 0.80, # set axis font size according to spec
+     cex.lab = 0.80, # set axis label size according to spec
      col = "black") # colour the line black
 lines(df.sub$DateTime, df.sub$Sub_metering_2, # create second series in plot
      col = "red") # colour the line red 
@@ -30,10 +31,8 @@ legend('topright', # position legend in top right corner
        names(df.sub)[7:9], # apply names from data frame column names
        lty = 1, # make solid lines for each element of the legend
        col = c("black", "red", "blue"), # colour the lines according to spec
-       cex = 0.70, # reduce font size according to spec
-       y.intersp = 0.70, # set line spacing according to spec
-       lwd = 1.5, # Make lines slightly wider
+       cex = 0.80, # reduce font size according to spec
+       y.intersp = 1, # set line spacing according to spec
+       lwd = 1, # Make lines slightly wider
        bty = "o") # apply an outline to the legend
-
-dev.copy(png, file = "plot3.png", width = 480, height = 480) # Copy plot to a PNG file
 dev.off() # Close PNG device
